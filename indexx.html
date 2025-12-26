@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Anuj Mishra | Data Analyst Portfolio</title>
+
+<style>
+/* ===== THEME: BLACK + VIOLET/BLUE ACCENTS ===== */
+:root{
+  --bg-black:#000000;
+  --card:#0b0b0f;
+  --text:#eef2ff;
+  --muted:#9aa3c2;
+  --blue:#1e90ff;
+  --violet:#8b5cf6;
+  --glass:rgba(255,255,255,0.03);
+  --shadow:0 18px 50px rgba(0,0,0,0.9);
+  --radius:14px;
+  --ease: cubic-bezier(.2,.9,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial}
+html,body{height:100%;scroll-behavior:smooth}
+body{
+  background-color:var(--bg-black);
+  color:var(--text);
+  padding:28px;
+  background-image: url('sales-analysis-dashboard-bg.jpg');
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  position:relative;
+  overflow-x:hidden;
+}
+body::after{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image: radial-gradient(circle at 10% 10%, rgba(139,92,246,0.06), transparent 12%), radial-gradient(circle at 80% 20%, rgba(30,144,255,0.04), transparent 12%);
+}
+.wrap{max-width:1150px;margin:0 auto;position:relative;z-index:2}
+
+/* HEADER */
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.brand{display:flex;gap:14px;align-items:center}
+.logo{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--blue));display:flex;align-items:center;justify-content:center;font-weight:700;transition:transform 450ms var(--ease), box-shadow 450ms var(--ease)}
+.logo:hover{transform:scale(1.06) rotate(-3deg);box-shadow:0 24px 60px rgba(139,92,246,0.18)}
+nav a{color:var(--muted);margin-left:16px;text-decoration:none;transition:color 300ms var(--ease), transform 300ms var(--ease)}
+nav a:hover{color:var(--blue);transform:translateY(-2px)}
+button{cursor:pointer}
+
+/* LAYOUT */
+.grid{display:grid;grid-template-columns:1fr 360px;gap:26px;align-items:start}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(6px);transition:transform 400ms var(--ease), box-shadow 400ms var(--ease)}
+.card:hover{transform:translateY(-6px);box-shadow:0 36px 80px rgba(0,0,0,0.75)}
+
+/* PROFILE PHOTO */
+.photo{display:flex;justify-content:center;margin-bottom:14px}
+.photo img{width:220px;height:220px;border-radius:50%;object-fit:cover;border:6px solid rgba(255,255,255,0.06);box-shadow:0 20px 40px rgba(139,92,246,0.12);transform-origin:center;animation:float 4s ease-in-out infinite;transition:transform 450ms var(--ease), box-shadow 450ms var(--ease)}
+.photo img:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 30px 70px rgba(139,92,246,0.18)}
+@keyframes float{0%{transform:translateY(6px)}50%{transform:translateY(-6px) rotate(-0.5deg)}100%{transform:translateY(6px)}}
+
+/* HERO + TYPING EFFECT */
+.hero h2{font-size:28px;margin-bottom:10px;color:var(--violet);}
+.type{color:var(--blue);border-right:2px solid rgba(255,255,255,0.12);padding-right:6px}
+.lead{color:var(--muted);line-height:1.6;margin-bottom:14px;opacity:0.95}
+
+/* CTA BUTTONS */
+.btn{display:inline-block;padding:10px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);cursor:pointer;font-weight:600;transition:transform 260ms var(--ease), box-shadow 260ms var(--ease), background 260ms var(--ease)}
+.btn.primary{background:linear-gradient(90deg,var(--blue),var(--violet));color:#fff;box-shadow:0 12px 34px rgba(30,144,255,0.12);border:none}
+.btn:hover{transform:translateY(-6px);box-shadow:0 26px 56px rgba(30,144,255,0.12)}
+
+/* stats */
+.stats{display:flex;gap:12px;margin-top:14px}
+.stat{flex:1;text-align:center;padding:12px;border-radius:12px;background:linear-gradient(90deg, rgba(139,92,246,0.03), rgba(30,144,255,0.02));position:relative;overflow:visible;transition:transform 360ms var(--ease), box-shadow 360ms var(--ease)}
+.stat:hover{transform:translateY(-6px)}
+.stat h3{color:var(--violet);font-size:20px;transition:transform 300ms var(--ease)}
+.stat p{font-size:13px;color:var(--muted)}
+
+/* pop animation when counter finishes */
+.pop{animation:pop 700ms cubic-bezier(.2,.9,.2,1)}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.22)}100%{transform:scale(1)}}
+
+/* PROJECTS */
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.project{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));transition:transform .35s var(--ease),box-shadow .35s var(--ease,);position:relative;border:1px solid rgba(255,255,255,0.03);will-change:transform}
+.project:hover{transform:translateY(-8px) rotate(-0.6deg);box-shadow:0 30px 60px rgba(0,0,0,0.6)}
+.project h4{color:var(--blue);margin-bottom:8px}
+.project p{color:var(--muted);line-height:1.45}
+
+/* project tag chips */
+.chip{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);color:var(--muted);font-size:13px;margin-right:8px;transition:transform 200ms var(--ease),background 200ms var(--ease)}
+.chip:hover{transform:translateY(-4px);background:linear-gradient(90deg, rgba(139,92,246,0.06), rgba(30,144,255,0.04));color:var(--text)}
+
+/* RIGHT SIDEBAR */
+aside{position:relative}
+.contact a{color:var(--text);text-decoration:none;transition:color 200ms var(--ease)}
+.contact a:hover{color:var(--blue)}
+.contact small{color:var(--muted)}
+
+/* subtle animated data-grid background inside cards */
+.card::before{content:'';position:absolute;inset:0;background-image:linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px),linear-gradient(180deg, rgba(255,255,255,0.01) 1px, transparent 1px);background-size:120px 120px,120px 120px;opacity:0.03;border-radius:inherit;pointer-events:none}
+
+/* REVEAL ANIMATION */
+.reveal{opacity:0;transform:translateY(10px);transition:all 700ms var(--ease)}
+.reveal.show{opacity:1;transform:translateY(0)}
+
+/* typing cursor blink */
+.cursor{display:inline-block;width:2px;height:22px;background:var(--text);vertical-align:middle;margin-left:6px;animation:blink 800ms step-end infinite}
+@keyframes blink{50%{opacity:0}} 
+
+/* NETWORKING ANIMATION BACKGROUND (floating connecting nodes) */
+#net-bg{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.25}
+
+/* responsive */
+@media (max-width:920px){.grid{grid-template-columns:1fr}.projects{grid-template-columns:1fr}.photo img{width:160px;height:160px}}
+
+</style>
+</head>
+<body>
+
+<canvas id="net-bg"></canvas>
+
+<div class="wrap">
+<header>
+  <div class="brand">
+    <div class="logo">AM</div>
+    <div>
+      <h1>Anuj Mishra</h1>
+      <p style="color:var(--muted);font-size:13px">📊 Data Analyst | 🧠 Data Science & AI 🐍 Python • SQL • 🤖 Machine Learning 📈 Power BI • 📊 Tableau • 📘 Advanced Excel • 🧠 Artificial Intelligence 🚀 Transforming data into clear business insights 🔥 38K Impressions</p>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main class="grid">
+
+<!-- LEFT COLUMN -->
+<div>
+
+<section class="card reveal" id="about">
+  <div style="display:flex;justify-content:space-between;gap:18px;align-items:flex-start">
+    <div style="flex:1}">
+      <h2>Hello, I'm Anuj — <span id="typed" class="type"></span><span class="cursor"></span></h2>
+      <p class="lead">I turn raw data into clear insights, dashboards, and business decisions. I work with SQL, Power BI, Tableau, Excel, Python, and AI tools to solve real-world problems and help teams make data-driven choices.</p>
+
+      <div class="stats">
+        <div class="stat"><h3 id="expC">0+</h3><p>Years experience</p></div>
+        <div class="stat"><h3 id="projC">0+</h3><p>Projects delivered</p></div>
+        <div class="stat"><h3 id="impC">0K+</h3><p>LinkedIn impressions</p></div>
+      </div>
+    </div>
+    <div style="width:200px;display:flex;align-items:center;justify-content:center">
+      <!-- mini live sparkline (svg animated) -->
+      <svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path id="spark" d="M4 60 C28 44,48 30,76 36 C104 42,128 26,152 32 C176 38,196 16,196 12" stroke="url(#g)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="300" stroke-dashoffset="300"/>
+        <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="var(--violet)"/><stop offset="1" stop-color="var(--blue)"/></linearGradient></defs>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="card reveal" style="margin-top:16px" id="projects">
+  <h2 style="color:var(--violet);margin-bottom:12px">Projects</h2>
+  <div class="projects">
+    <div class="project reveal">
+      <h4>BMW Sales Dashboard (Power BI)</h4>
+      <p>Analyzed 11 BMW models, yearly trends, pricing patterns, and region-wise insights. Outcome: improved BI storytelling and model-level insights.</p>
+    </div>
+
+    <div class="project reveal">
+      <h4>Walmart SQL Wholesale Analysis (SQL)</h4>
+      <p>SQL-based trend analysis, store performance, customer patterns, cleaning, and query optimization for large datasets.</p>
+    </div>
+
+    <div class="project reveal">
+      <h4>PayTrack – Banking Customer Behavior (Excel)</h4>
+      <p>Payment frequency tracking, delay identification, and risk scoring to improve credit decisions.</p>
+    </div>
+
+    <div class="project reveal">
+      <h4>E-commerce Sales Dashboard (Excel)</h4>
+      <p>Interactive slicers, KPI tracking, product & region performance, and revenue trend analysis.</p>
+    </div>
+
+    <div class="project reveal">
+      <h4>EV Market Analysis (Tableau)</h4>
+      <p>Market sizing, EV model popularity, CAFV benefits, and investment insights for strategic decision-making.</p>
+    </div>
+  </div>
+</section>
+
+<section class="card reveal" style="margin-top:16px" id="experience">
+  <h2 style="color:var(--violet);margin-bottom:10px">Experience</h2>
+  <h3>Loan Analyst — 24x7 Achha Hoga Advisory (Jun 2019 – Jun 2025)</h3>
+  <p style="color:var(--muted);margin-top:8px">Analyzed financial profiles, coordinated with 100+ banks/NBFCs, handled end-to-end loan process, suggested restructuring options, and helped 2000+ clients secure loans up to ₹5 Cr.</p>
+</section>
+
+</div>
+
+<!-- RIGHT SIDEBAR -->
+<aside class="card reveal" id="contact">
+  <div class="photo"><img src="Data_Science_Anuj.png" alt="Anuj Mishra"></div>
+
+  <h3 style="color:var(--violet);margin-bottom:6px">Contact</h3>
+  <p class="contact">Email: <a href="mailto:anujmishra462@gmail.com">anujmishra462@gmail.com</a></p>
+  <p class="contact">Phone: <a href="tel:+918452984258">+91 84529 84258</a></p>
+  <p class="contact">LinkedIn: <a href="https://www.linkedin.com/in/anuj-mishra-data-analyst" target="_blank">/in/anuj-mishra-data-analyst</a></p>
+  <p class="contact">GitHub: <a href="https://github.com/anuj-mishra" target="_blank">github.com/anuj-mishra</a></p>
+
+  <h3 style="color:var(--violet);margin-top:16px">Goals</h3>
+  <p style="color:var(--muted);">Build AI & ML projects, design impactful dashboards, and grow into data science roles.</p>
+</aside>
+
+</main>
+
+<footer style="text-align:center;color:var(--muted);margin-top:32px">© 2025 Anuj Mishra — Data Analyst. Portfolio powered by clear insights & animation.</footer>
+</div>
+
+<script>
+// Networking background
+(function(){
+  const c=document.getElementById('net-bg');
+  const ctx=c.getContext('2d');
+  let w,h,points=[];
+  const COUNT=45;
+  function resize(){w=c.width=window.innerWidth;h=c.height=window.innerHeight;} resize();
+  window.addEventListener('resize',resize);
+  function init(){points=[];for(let i=0;i<COUNT;i++){points.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*0.4,vy:(Math.random()-.5)*0.4});}} init();
+  function draw(){ctx.clearRect(0,0,w,h);for(const p of points){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;ctx.fillStyle='rgba(139,92,246,0.7)';ctx.beginPath();ctx.arc(p.x,p.y,2.3,0,Math.PI*2);ctx.fill();}
+    for(let i=0;i<COUNT;i++){for(let j=i+1;j<COUNT;j++){const p=points[i], q=points[j];const dx=p.x-q.x, dy=p.y-q.y;const dist=Math.sqrt(dx*dx+dy*dy);if(dist<130){ctx.strokeStyle='rgba(30,144,255,'+(1-dist/130)*0.35+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}}}
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// Typing effect (data-analyst roles)
+(function(){
+  const words = ['Data Analyst', 'Artificial Intelligence', 'SQL • Power BI • Python • Machine Learning'];
+  const el = document.getElementById('typed');
+  let i = 0, j = 0, cur = '', isDeleting=false;
+  function tick(){const word = words[i]; if(!isDeleting){ cur = word.slice(0, ++j); } else{ cur = word.slice(0, --j); } el.textContent = cur; if(!isDeleting && j === word.length){ isDeleting = true; setTimeout(tick,1200); } else if(isDeleting && j === 0){ isDeleting = false; i = (i+1) % words.length; setTimeout(tick,300); } else{ setTimeout(tick, isDeleting?60:90); }} tick();
+})();
+
+// Reveal on scroll
+(function(){
+  const obs = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');obs.unobserve(e.target);}});},{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+})();
+
+// Counters with slower speed and pop animation on finish
+(function(){
+  function animate(id,to,suffix='',duration=2600){const el = document.getElementById(id); if(!el) return; let v=0; const steps = Math.max(30, Math.round(duration/120)); const step = Math.ceil(to/steps); const t = setInterval(()=>{ v+=step; if(v>=to){ el.textContent = to+suffix; el.classList.add('pop'); setTimeout(()=>el.classList.remove('pop'),900); clearInterval(t);} else el.textContent = v+suffix; },120);} 
+  window.addEventListener('load', ()=>{ animate('expC',6,'+',3000); animate('projC',12,'+',3200); animate('impC',38,'K+',3600); const path = document.getElementById('spark'); if(path){ path.style.transition='stroke-dashoffset 1800ms ease'; path.style.strokeDashoffset=0; }});
+})();
+
+// Smooth hover interactions for interactive elements (subtle) --- improves feel on mobile too
+(function(){
+  document.querySelectorAll('.btn, .project, nav a').forEach(el=>{el.addEventListener('pointerenter', ()=>{el.style.transform='translateY(-6px)';});el.addEventListener('pointerleave', ()=>{el.style.transform='';});});
+})();
+
+</script>
+
+</body>
+</html>
