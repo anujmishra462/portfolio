@@ -146,7 +146,7 @@ aside{position:relative}
 <section class="card reveal" id="about">
   <div style="display:flex;justify-content:space-between;gap:18px;align-items:flex-start">
     <div style="flex:1}">
-      <h2>Hello, I'm Anuj — <span id="typed" class="type"></span><span class="cursor"></span></h2>
+      <h2>Hello, I'm Anuj Mishra — <span id="typed" class="type"></span><span class="cursor"></span></h2>
       <p class="lead">I turn raw data into clear insights, dashboards, and business decisions. I work with SQL, Power BI, Tableau, Excel, Python, and AI tools to solve real-world problems and help teams make data-driven choices.</p>
 
       <div class="stats">
@@ -197,7 +197,7 @@ aside{position:relative}
 
 <section class="card reveal" style="margin-top:16px" id="experience">
   <h2 style="color:var(--violet);margin-bottom:10px">Experience</h2>
-  <h3>Loan Analyst — 24x7 Achha Hoga Advisory (Jun 2019 – Jun 2025)</h3>
+  <h3>Loan Analyst — 24x7 Achha Hoga Advisory (Jun 2019 – Dec 2025)</h3>
   <p style="color:var(--muted);margin-top:8px">Analyzed financial profiles, coordinated with 100+ banks/NBFCs, handled end-to-end loan process, suggested restructuring options, and helped 2000+ clients secure loans up to ₹5 Cr.</p>
 </section>
 
@@ -241,7 +241,7 @@ aside{position:relative}
 
 // Typing effect (data-analyst roles)
 (function(){
-  const words = ['Data Analyst', 'Artificial Intelligence', 'SQL • Power BI • Python • Machine Learning'];
+  const words = ['Data Analyst', 'Artificial Intelligence', 'SQL • Excel • Power BI • Tableau • Python • Machine Learning'];
   const el = document.getElementById('typed');
   let i = 0, j = 0, cur = '', isDeleting=false;
   function tick(){const word = words[i]; if(!isDeleting){ cur = word.slice(0, ++j); } else{ cur = word.slice(0, --j); } el.textContent = cur; if(!isDeleting && j === word.length){ isDeleting = true; setTimeout(tick,1200); } else if(isDeleting && j === 0){ isDeleting = false; i = (i+1) % words.length; setTimeout(tick,300); } else{ setTimeout(tick, isDeleting?60:90); }} tick();
@@ -268,3 +268,4 @@ aside{position:relative}
 
 </body>
 </html>
+
